@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Afetu — Medicina Veterinária Integrativa. Acupuntura e Nefrologia para cães e gatos. Dra. Isadora Alvarez. Atendimento domiciliar e em clínicas em São Paulo." />
+  <meta name="keywords" content="acupuntura veterinária, nefrologia veterinária, medicina integrativa veterinária, veterinária domiciliar São Paulo, Isadora Alvarez" />
+  <meta property="og:title" content="Afetu — Medicina Veterinária Integrativa" />
+  <meta property="og:description" content="Cuidado humanizado e baseado em ciência para cães e gatos. Acupuntura e Nefrologia Integrativa." />
+  <meta property="og:type" content="website" />
+  <title>Afetu — Medicina Veterinária Integrativa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* =============================
+       DESIGN TOKENS
+    ============================= */
+    :root {
+      --primary: #264347;
+      --primary-light: #3a6168;
+      --primary-dark: #1a2e31;
+      --secondary: #E9E1D5;
+      --secondary-dark: #d4c8b8;
+      --secondary-darker: #b8a992;
+      --bg-light: #E9E1D5;
+      --bg-dark: #264347;
+      --content: #101E20;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --border: rgba(38,67,71,0.12);
+      --border-light: rgba(233,225,213,0.2);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+
+      --shadow-card: 0 2px 16px rgba(16,30,32,0.07);
+      --shadow-hover: 0 8px 32px rgba(16,30,32,0.13);
+      --shadow-nav: 0 1px 0 rgba(16,30,32,0.08);
+
+      --transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+      --transition-slow: all 0.4s cubic-bezier(0.4,0,0.2,1);
+
+      --font-display: 'Lora', serif;
+      --font-body: 'Archivo', sans-serif;
+    }
+
+    /* =============================
+       RESET & BASE
+    ============================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+    font-family: 'Archivo', sans-serif;
+    color: var(--content);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Skip to content (accessibility) */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--primary);
+      color: var(--secondary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      z-index: 10000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* =============================
+       TYPOGRAPHY SCALE
+    ============================= */
+    .display {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+    .h2 {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    .h3 {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.8vw, 22px);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .h4 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .body-lg { font-size: 18px; line-height: 1.75; }
+    .body-md { font-size: 16px; line-height: 1.65; }
+    .caption { font-size: 12px; line-height: 1.5; color: var(--muted); letter-spacing: 0.02em; }
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* =============================
+       BUTTONS
+    ============================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.18s;
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.06); }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-sm { font-size: 12px; padding: 7px 16px; }
+    .btn-md { font-size: 14px; padding: 11px 24px; }
+    .btn-lg { font-size: 15px; padding: 14px 32px; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--secondary);
+    }
+    .btn-primary:hover { background: var(--primary-light); }
+
+    .btn-primary-light {
+      background: var(--secondary);
+      color: var(--content);
+    }
+    .btn-primary-light:hover { background: var(--secondary-dark); }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(38,67,71,0.06); }
+
+    .btn-outline-light {
+      border: 1.5px solid rgba(233,225,213,0.6);
+      color: var(--secondary);
+      background: transparent;
+    }
+    .btn-outline-light:hover { background: rgba(233,225,213,0.08); }
+
+    /* =============================
+       NAVBAR
+    ============================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--bg-dark);
+      transition: var(--transition);
+    }
+    .navbar.scrolled {
+      box-shadow: 0 2px 20px rgba(16,30,32,0.3);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .navbar-logo svg {
+      height: 36px;
+      width: auto;
+    }
+    .navbar-logo svg path { fill: var(--secondary); }
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(233,225,213,0.75);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 14px;
+      right: 14px;
+      height: 1.5px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+    .nav-link:hover { color: var(--secondary); }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-link.active { color: var(--secondary); }
+
+    .navbar-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    .hamburger:hover { background: rgba(233,225,213,0.1); }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--secondary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--primary-dark);
+      padding: 16px 24px 24px;
+      z-index: 999;
+      border-top: 1px solid rgba(233,225,213,0.1);
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu .nav-link {
+      display: block;
+      padding: 12px 8px;
+      border-bottom: 1px solid rgba(233,225,213,0.06);
+      font-size: 16px;
+    }
+    .mobile-menu .nav-link::after { display: none; }
+    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 16px; }
+
+    /* =============================
+       HERO
+    ============================= */
+    .hero {
+      background: var(--bg-dark);
+      padding: 144px 24px 96px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Decorative botanical background element */
+    .hero-bg-ornament {
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 600px;
+      height: 600px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(233,225,213,0.1);
+      border: 1px solid rgba(233,225,213,0.18);
+      border-radius: var(--radius-full);
+      padding: 6px 14px 6px 10px;
+      margin-bottom: 32px;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--secondary-darker);
+      flex-shrink: 0;
+    }
+    .hero-badge span {
+      font-size: 12px;
+      color: rgba(233,225,213,0.75);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--secondary-darker);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.75;
+      color: rgba(233,225,213,0.65);
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(233,225,213,0.1);
+    }
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: rgba(233,225,213,0.5);
+      font-weight: 400;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-visual-card {
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: rgba(233,225,213,0.06);
+    border: 1px solid rgba(233,225,213,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+
+    }
+    .hero-floating-tag {
+      position: absolute;
+      background: rgba(233,225,213,0.1);
+      border-radius: 1px solid rgba(233,225,213,0.15);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-lg);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-floating-tag .tag-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(233,225,213,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    }
+    
+    .hero-floating-tag .tag-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    .hero-floating-tag .tag-value {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(233,225,213,0.6);
+    }
+    .tag-acupuntura
+    { top: 10%; right: -5%; animation: float1 4s ease-in-out infinite; }
+    .tag-nefro { bottom: 10%; left: -5%;  animation: float2 4s ease-in-out infinite; }
+    
+    @keyframes float1 { 0%, 100% {  transform: translateY(0px); }  50% {  transform: translateY(-10px); } }
+    @keyframes float2 { 0%, 100% {  transform: translateY(0px); }  50% {  transform: translateY(8px); } }  
+
+    
+
+    /* =============================
+       SECTION COMMONS
+    ============================= */
+    .section {
+      padding: 96px 24px;
+    }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      margin-bottom: 56px;
+    }
+    .section-header.centered { text-align: center; }
+
+    .section-pretitle {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-pretitle.light { color: rgba(233,225,213,0.5); }
+    .section-pretitle::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1.5px;
+      background: currentColor;
+    }
+    .section-header.centered .section-pretitle {
+      justify-content: center;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* =============================
+       ABOUT SECTION
+    ============================= */
+    .about { background: var(--bg-light); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-portrait {
+      position: relative;
+    }
+    .about-portrait-frame {
+      aspect-ratio: 3/4;
+      background: var(--secondary-dark);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-portrait-frame-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .about-portrait-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(160deg, var(--secondary-dark) 0%, var(--secondary-darker) 100%);
+    }
+    .portrait-initials {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .portrait-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
+    }
+    .portrait-role {
+      font-size: 12px;
+      color: var(--primary-light);
+      text-align: center;
+    }
+
+    .about-credential-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-hover);
+    }
+    .credential-number {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1;
+    }
+    .credential-text {
+      font-size: 11px;
+      color: rgba(233,225,213,0.65);
+      margin-top: 3px;
+    }
+
+    .about-content {}
+
+    .about-bio {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--content);
+      margin-bottom: 32px;
+    }
+    .about-bio strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .about-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .credential-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    .credential-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .credential-info-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--content);
+      margin-bottom: 2px;
+    }
+    .credential-info-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: var(--transition);
+    }
+    .pillar-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+    .pillar-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .pillar-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* =============================
+       SERVICES SECTION
+    ============================= */
+    .services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .service-card:hover {
+      border-color: var(--secondary-dark);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card.featured {
+      background: var(--bg-dark);
+      border-color: transparent;
+    }
+    .service-card.featured::before { background: var(--secondary); }
+
+    .service-number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .service-card.featured .service-number { color: rgba(233,225,213,0.4); }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--bg-light);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .service-card.featured .service-icon { background: rgba(233,225,213,0.1); }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .service-card.featured .service-title { color: var(--secondary); }
+
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 28px;
+      flex: 1;
+    }
+    .service-card.featured .service-desc { color: rgba(233,225,213,0.6); }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .service-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--bg-light);
+      color: var(--primary);
+    }
+    .service-card.featured .service-tag {
+      background: rgba(233,225,213,0.1);
+      color: rgba(233,225,213,0.7);
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    .service-card.featured .service-link { color: var(--secondary); }
+    .service-link:hover { gap: 10px; }
+    .service-link svg { transition: transform 0.2s; }
+    .service-link:hover svg { transform: translateX(3px); }
+
+    /* =============================
+       DIFERENCIAIS
+    ============================= */
+    .diferenciais { background: var(--bg-dark); }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(233,225,213,0.1);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .diferencial-item {
+      background: var(--bg-dark);
+      padding: 40px 32px;
+      transition: var(--transition);
+    }
+    .diferencial-item:hover { background: rgba(233,225,213,0.04); }
+
+    .diferencial-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(233,225,213,0.08);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .diferencial-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    .diferencial-desc {
+      font-size: 13px;
+      color: rgba(233,225,213,0.5);
+      line-height: 1.65;
+    }
+
+    /* =============================
+       DEPOIMENTOS
+    ============================= */
+    .depoimentos { background: var(--bg-light); }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .depoimento-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      transition: var(--transition);
+    }
+    .depoimento-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .depoimento-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 20px;
+    }
+    .star {
+      width: 14px;
+      height: 14px;
+      fill: #d4a843;
+    }
+
+    .depoimento-text {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--content);
+      margin-bottom: 24px;
+    }
+
+    .depoimento-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      border: 2px solid var(--secondary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--content);
+    }
+    .author-pet {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* =============================
+       PROCESSO
+    ============================= */
+    .processo { background: var(--white); }
+
+    .processo-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .processo-steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .processo-step {
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      border: 2px solid var(--secondary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    .processo-step:hover .step-number {
+      background: var(--primary);
+      color: var(--secondary);
+      border-color: var(--primary);
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* =============================
+       AGENDAMENTO
+    ============================= */
+    .agendamento { background: var(--bg-dark); }
+
+    .agendamento-inner {
+      display: grid;
+      grid-template-columns: 1fr 0fr;
+      gap: 72px;
+      align-items: center;
+    }
+      .agendamento-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px
+    }
+
+    .agendamento-info {}
+    .agendamento-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .agendamento-sub {
+      font-size: 15px;
+      color: rgba(233,225,213,0.6);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+    .agendamento-portrait {
+  position: relative;
+}
+    .agendamento-floating-tag {
+      position: absolute;
+      background: rgba(233,225,213,0.1);
+      border-radius: 1px solid rgba(233,225,213,0.15);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-lg);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+      .agendamento-floating-tag .tag-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    
+    .agendamento-floating-tag .tag-value {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(233,225,213,0.6);
+    }
+    .tag-riticaco
+    { bottom: 10%; left: -20%; animation: float1 6s ease-in-out infinite; }
+    
+    @keyframes float1 { 100%, 100% {  transform: translateY(0px); }  50% {  transform: translateY(-10px); } }
+
+        .agendamento-frame {
+       width: 400px;
+       height: 400px;
+      background: var(--secondary-dark);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .agendamento-frame-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(233,225,213,0.08);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-label { font-size: 11px; color: rgba(233,225,213,0.4); margin-bottom: 2px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-value { font-size: 14px; color: rgba(233,225,213,0.85); font-weight: 400; }
+
+    /* Form */
+    .form-card {
+      background: rgba(233,225,213,0.05);
+      border: 1px solid rgba(233,225,213,0.1);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+    }
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(233,225,213,0.5);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--secondary);
+      background: rgba(233,225,213,0.07);
+      border: 1px solid rgba(233,225,213,0.15);
+      border-radius: var(--radius-md);
+      padding: 11px 14px;
+      transition: var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder { color: rgba(233,225,213,0.3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: rgba(233,225,213,0.4);
+      background: rgba(233,225,213,0.1);
+      box-shadow: 0 0 0 3px rgba(233,225,213,0.06);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(233,225,213,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      color: rgba(233,225,213,0.7);
+      cursor: pointer;
+    }
+    .form-select option { background: var(--primary-dark); color: var(--secondary); }
+    .form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .form-checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-top: 4px; }
+    .form-checkbox { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--secondary); cursor: pointer; flex-shrink: 0; }
+    .form-checkbox-label { font-size: 12px; color: rgba(233,225,213,0.5); line-height: 1.5; }
+    .form-checkbox-label a { color: rgba(233,225,213,0.7); text-decoration: underline; text-underline-offset: 2px; }
+    .form-submit { width: 100%; margin-top: 8px; justify-content: center; }
+    .form-error { display: none; font-size: 11px; color: #f87171; margin-top: 4px; }
+    .form-input.error { border-color: rgba(248,113,113,0.5); }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+    .form-success-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(233,225,213,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .form-success-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+    .form-success-text { font-size: 14px; color: rgba(233,225,213,0.6); }
+
+    /* =============================
+       FOOTER
+    ============================= */
+    .footer {
+      background: var(--primary-dark);
+      padding: 64px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(233,225,213,0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {}
+    .footer-logo { margin-bottom: 16px; }
+    .footer-logo svg { height: 32px; width: auto; }
+    .footer-logo svg path { fill: rgba(233,225,213,0.8); }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(233,225,213,0.45);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 260px;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: rgba(233,225,213,0.07);
+      border: 1px solid rgba(233,225,213,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      background: rgba(233,225,213,0.12);
+      border-color: rgba(233,225,213,0.2);
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(233,225,213,0.4);
+      margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-link {
+      font-size: 13px;
+      color: rgba(233,225,213,0.55);
+      transition: var(--transition);
+    }
+    .footer-link:hover { color: rgba(233,225,213,0.9); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(233,225,213,0.3);
+    }
+    .footer-crf {
+      font-size: 12px;
+      color: rgba(233,225,213,0.3);
+    }
+
+    /* =============================
+       RESPONSIVE
+    ============================= */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .hero { min-height: auto; padding: 120px 24px 80px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-portrait { max-width: 320px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .diferenciais-grid { grid-template-columns: 1fr 1fr; }
+      .depoimentos-grid { grid-template-columns: 1fr 1fr; }
+      .processo-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .processo-steps::before { display: none; }
+      .agendamento-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 72px 20px; }
+      .navbar-inner { padding: 0 20px; }
+      .navbar-nav, .navbar-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .services-grid { grid-template-columns: 1fr; }
+      .diferenciais-grid { grid-template-columns: 1fr 1fr; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .processo-steps { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .about-pillars { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .processo-steps { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { justify-content: center; }
+    }
+
+    /* =============================
+       SCROLL TO TOP
+    ============================= */
+    .scroll-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(16,30,32,0.3);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: var(--transition);
+      z-index: 900;
+      cursor: pointer;
+      border: none;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: var(--primary-light); }
+
+    /* =============================
+       LOADING ANIMATION
+    ============================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-badge { animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) 0.1s both; }
+    .hero-title { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.2s both; }
+    .hero-subtitle { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both; }
+    .hero-actions { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.4s both; }
+    .hero-stats { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.5s both; }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ========================
+       NAVBAR
+  ======================== -->
+  <header role="banner">
+    <nav class="navbar" id="navbar" aria-label="Navegação principal">
+      <div class="navbar-inner">
+        <!-- Logo -->
+        <a href="#inicio" class="navbar-logo" aria-label="Afetu — Página inicial">
+          <svg width="865" height="170" viewBox="0 0 865 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M378.109 16.9395L406.546 113.737C412.999 135.919 413.403 138.743 424.697 144.591C437.402 151.246 435.587 166.168 420.663 166.168H361.975C347.252 166.168 342.614 151.246 352.899 144.591C361.975 138.743 365.403 135.919 358.546 113.737L356.53 107.284H322.244C319.623 121.198 319.421 132.491 325.471 144.591C329.908 153.665 331.32 166.168 316.396 166.168H287.959C274.245 166.168 275.859 155.077 285.741 144.591C299.858 129.87 303.488 113.938 308.53 91.9573L325.27 19.9644C320.228 10.2847 329.908 9.88138 337.572 9.88138H368.832C373.672 9.88138 376.697 12.3013 378.109 16.9395ZM325.673 91.1507H351.689L336.564 42.1471L325.673 91.1507Z" fill="currentColor"/>
+            <path d="M458.596 56.2633C448.915 56.2633 448.915 42.1471 458.596 42.1471H462.428C458.192 25.2076 469.285 0 496.511 0C514.46 0 523.738 8.87308 523.738 19.1578C523.738 26.8209 520.511 35.4923 509.62 35.4923C491.267 35.4923 496.713 10.8897 489.856 10.8897C488.444 10.8897 486.024 11.898 486.024 16.9395C486.024 25.0059 491.469 42.1471 502.763 42.1471H523.334C533.015 42.1471 533.015 56.2633 523.334 56.2633H502.763V115.753C502.763 129.87 503.771 139.953 513.654 146.002C523.334 151.851 522.729 166.168 509.62 166.168H455.571C442.462 166.168 441.857 151.851 451.537 146.002C461.621 139.953 462.428 136.323 462.428 115.753V56.2633H458.596Z" fill="currentColor"/>
+            <path d="M590.578 127.45C576.259 127.45 567.788 120.19 566.78 115.955C568.192 124.425 579.889 143.784 605.502 143.784C619.821 143.784 632.123 136.726 637.569 127.853C639.182 125.231 640.997 123.82 642.409 123.82C644.426 123.82 645.837 126.441 644.426 131.281C636.762 158.102 613.367 170 588.359 170C557.099 170 525.033 151.246 525.033 107.485C525.033 72.3962 548.831 46.382 586.141 46.382C614.174 46.382 634.14 61.1032 634.14 86.1091C634.14 105.872 618.611 127.45 590.578 127.45ZM566.78 91.3523C566.78 102.242 570.41 111.518 579.082 111.518C588.964 111.518 593.805 96.9988 593.805 82.6809C593.805 70.1779 589.569 60.9015 582.511 60.9015C572.629 60.9015 566.78 78.8493 566.78 91.3523Z" fill="currentColor"/>
+            <path d="M662.518 25.8126C670.182 11.0913 680.468 3.02492 690.552 3.02492C695.392 3.02492 701.24 5.84817 701.24 18.3511V36.0973H714.753C724.433 36.0973 724.433 50.2135 714.753 50.2135H701.24V120.996C701.24 131.079 703.862 135.314 706.484 135.314C709.106 135.314 711.728 131.281 711.728 124.626C711.728 120.996 713.341 118.98 715.156 118.98C717.375 118.98 719.795 122.005 719.795 128.458C719.795 160.119 701.24 165.967 689.947 165.967C673.006 165.967 660.905 156.69 660.905 127.853V50.2135H652.031C642.956 50.2135 642.552 38.5172 650.418 36.2989C655.056 35.089 658.888 32.8707 662.518 25.8126Z" fill="currentColor"/>
+            <path d="M777.509 86.7141V112.123C777.509 135.718 782.954 142.372 789.005 145.196C790.013 145.599 791.022 145.801 792.03 145.801C799.492 145.801 807.156 133.499 807.156 107.888C807.156 85.1008 806.147 84.8992 796.265 76.8327C787.593 69.7746 787.391 59.4899 800.299 56.6667L835.592 49.2052C836.802 49.0036 838.012 48.8019 839.223 48.8019C844.063 48.8019 847.491 51.8268 847.491 63.5231V122.206C847.491 136.323 848.5 139.953 858.382 146.002C868.062 151.851 867.457 166.168 854.348 166.168H812.601C801.509 166.168 801.105 158.304 803.929 153.06C797.072 163.547 783.761 167.58 772.064 167.58C754.518 167.58 737.174 154.27 737.174 124.425V93.5706C737.174 83.4875 734.552 79.2527 731.93 79.2527C729.308 79.2527 726.686 83.2859 726.686 89.9407C726.686 93.5706 725.073 95.5872 723.258 95.5872C721.04 95.5872 718.619 92.5623 718.619 86.1091C718.619 54.4484 737.174 48.6002 748.468 48.6002C765.409 48.6002 777.509 57.8766 777.509 86.7141Z" fill="currentColor"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M94.2132 0.000139652C95.3083 0.012123 96.1944 0.763629 96.9356 1.66012C97.6989 2.58346 98.4735 3.86683 99.3106 5.31358C100.522 7.40738 102.712 8.70982 105.065 9.47059C106.841 10.0448 108.651 10.2895 110.065 10.348L109.076 8.37268C108.93 8.08066 108.983 7.72821 109.208 7.49173C109.434 7.25545 109.784 7.18569 110.084 7.31716L115.338 9.62397L114.952 5.77827C114.916 5.41739 115.136 5.07957 115.481 4.96544C115.826 4.85156 116.204 4.9916 116.391 5.30248L118.96 9.57453L120.846 7.50485C121.107 7.21856 121.54 7.16814 121.86 7.38679C122.179 7.6056 122.289 8.02663 122.115 8.37268L121.369 9.86212C122.207 9.89644 123.204 9.96837 123.903 10.1078C124.754 10.2778 125.787 10.9061 126.942 11.894C128.123 12.9035 129.515 14.3634 131.088 16.3254C133.389 19.1945 136.864 20.0849 138.277 20.1681H154.041L154.298 20.1747C155.551 20.2447 156.372 20.8305 156.809 21.6414C157.227 22.4157 157.241 23.2935 157.142 23.8786L156.368 32.6361C156.367 32.6474 156.366 32.6592 156.365 32.6704C156.02 35.2482 155.063 41.2587 154.001 44.4376C152.602 48.6271 148.723 51.3304 144.791 53.1613C143.921 53.5665 142.669 53.8854 141.27 54.1427C139.855 54.4027 138.23 54.6101 136.578 54.7738C133.638 55.0653 130.58 55.2202 128.411 55.2814V69.6965C128.429 69.7107 128.45 69.7259 128.468 69.7434C128.508 69.7806 128.711 69.9709 128.717 70.2984C128.724 70.705 128.441 70.919 128.33 70.9836C128.219 71.0487 128.117 71.0697 128.085 71.0759C128.041 71.0846 128.004 71.0881 127.983 71.0896C127.94 71.0924 127.904 71.0912 127.885 71.0906C127.844 71.0892 127.802 71.0858 127.77 71.0825C127.702 71.0756 127.616 71.0643 127.524 71.0512C127.403 71.0339 127.291 70.9888 127.196 70.9236C126.928 70.8647 126.552 70.7861 126.046 70.6829L113.657 95.9014L118.278 99.9873L126.919 79.5413L126.947 79.4813C127.101 79.1883 127.428 79.023 127.761 79.0776C128.115 79.1361 128.383 79.4293 128.409 79.7865L129.23 91.1284L139.863 91.9861L140.192 91.6415L130.252 88.6662C130.119 88.6263 130.041 88.4888 130.075 88.3548C130.11 88.2209 130.244 88.1377 130.38 88.1661L141.311 90.4689L148.397 83.0454V70.5941C148.397 70.1781 148.647 69.8021 149.032 69.641C149.416 69.48 149.86 69.5647 150.158 69.8559L157.933 77.4656H171.964L179.267 69.4346C179.555 69.1185 180.008 69.0109 180.407 69.1647C180.806 69.3185 181.069 69.7019 181.069 70.1289V103.918C181.069 104.246 180.913 104.554 180.65 104.749L179.301 105.743L180.292 109.398C180.585 109.383 180.872 109.492 181.079 109.7C187.915 116.573 202.577 131.306 206.551 135.273C210.779 139.491 212.026 145.631 212.135 148.204C212.136 148.219 212.136 148.234 212.136 148.248V157.6H213.591C214.016 157.318 214.958 156.664 216.538 155.482C218.208 154.231 218.921 152.346 219.075 151.558V127.943L219.08 127.673C219.187 124.91 220.933 122.997 222.877 121.769C224.877 120.506 227.24 119.856 228.82 119.635C229.117 119.594 229.418 119.683 229.644 119.879C229.87 120.075 230 120.359 230 120.658V155.378L229.998 155.567C229.909 159.528 227.058 162.716 223.863 165.026C220.577 167.403 216.661 169.051 214.045 169.851C213.947 169.881 213.844 169.896 213.741 169.896H150.209C149.638 169.896 149.174 169.433 149.174 168.863V163.438C149.174 161.249 150.741 159.865 152.297 159.063C153.444 158.472 154.736 158.11 155.827 157.913L150.59 129.994C150.513 129.586 150.688 129.173 151.034 128.943C151.379 128.714 151.829 128.712 152.176 128.94L152.458 129.125L151.271 126.545C151.117 126.608 150.95 126.634 150.784 126.62C150.395 126.584 150.169 126.346 150.136 126.312C150.019 126.192 149.959 126.069 149.955 126.062C149.936 126.026 149.923 125.996 149.916 125.98C149.902 125.947 149.891 125.916 149.884 125.898C149.87 125.858 149.856 125.814 149.843 125.774C149.814 125.681 149.799 125.585 149.796 125.491C149.712 125.149 149.538 124.474 149.209 123.251C148.799 121.722 148.782 119.933 148.904 118.373C149.026 116.817 149.292 115.401 149.51 114.542L151.405 106.103L140.202 94.7839L129.447 94.134L134.881 169.169C134.896 169.383 134.822 169.595 134.675 169.753C134.528 169.91 134.322 170 134.106 170H120.385C120.06 170 119.769 169.797 119.656 169.493L117.892 164.714L108.921 154.228C108.675 153.94 108.673 153.517 108.917 153.227C109.161 152.937 109.58 152.865 109.907 153.058L112.93 154.841L107.295 145.603C107.095 145.276 107.166 144.851 107.461 144.605C107.756 144.36 108.187 144.366 108.474 144.621L110.857 146.735L106.478 134.575L94.6971 153.619C95.4559 154.415 96.8683 155.957 98.7135 158.133C101.036 160.872 104.569 166.416 106.033 168.823C106.178 169.062 106.184 169.361 106.046 169.605C105.909 169.849 105.65 170 105.369 170H29.2548C27.1652 170 25.2797 169.086 23.8059 168.01C22.7576 167.244 21.8816 166.37 21.2448 165.611L19.786 167.614C19.6122 167.852 19.3176 167.972 19.0265 167.922C18.7354 167.872 18.4973 167.661 18.4132 167.378L16.8315 162.053L15.1568 164.727C14.9732 165.02 14.6168 165.156 14.284 165.061C13.9512 164.966 13.7215 164.662 13.7213 164.317V159.762L12.0481 162.405C11.8634 162.697 11.5073 162.832 11.1753 162.736C10.8434 162.64 10.6148 162.337 10.6145 161.992V154.504C9.53257 153.068 7.22529 149.484 5.23745 144.723C3.14126 139.703 0.886004 131.351 0.0221782 127.817C-0.0552665 127.501 0.0742298 127.169 0.3463 126.988C0.618497 126.808 0.975319 126.816 1.23827 127.01L22.7825 142.889V135.384C22.7825 128.934 24.5302 122.043 25.7294 118.377L22.7016 119.088C22.3612 119.168 22.0089 119.011 21.8415 118.704C21.6743 118.397 21.7333 118.017 21.9856 117.775L32.9911 107.223L30.2358 107.973C29.8716 108.072 29.4885 107.895 29.3281 107.554C29.168 107.213 29.2774 106.806 29.587 106.59L41.2837 98.4424H35.7271C35.379 98.4423 35.0734 98.2106 34.9793 97.8763C34.8855 97.5415 35.0265 97.1852 35.3242 97.0049L48.108 89.2671L44.6155 89.6546C44.2288 89.6974 43.8696 89.4474 43.7756 89.0708C43.6818 88.6939 43.8823 88.3057 44.2443 88.1631L50.2843 85.7841H49.4485C49.0738 85.7841 48.7523 85.5166 48.6844 85.1489C48.6169 84.781 48.8224 84.4174 49.1729 84.2846L54.9924 82.0817L49.1107 79.2487C48.7573 79.0784 48.5868 78.6713 48.7133 78.3006C48.84 77.9299 49.2241 77.712 49.6083 77.7925L58.3247 79.6236L57.4858 74.8086C57.4229 74.4478 57.6218 74.0924 57.9626 73.9564C58.3035 73.8206 58.6934 73.9412 58.8971 74.246L60.9414 77.3062L74.7699 62.5223C75.0573 62.2151 75.5378 62.1921 75.853 62.4708L77.0064 63.4905L80.3574 56.3849C78.5731 55.3132 77.1559 54.3512 76.1605 53.5917C75.9114 53.4017 75.8014 53.0803 75.8813 52.7778L79.026 40.8971L77.5414 41.7619C77.2223 41.9476 76.8159 41.8831 76.57 41.6081C76.3243 41.3328 76.307 40.9227 76.5286 40.6277L79.6722 36.4445L75.7034 35.6528C75.3781 35.5879 75.1301 35.3234 75.086 34.9954C75.042 34.6674 75.2116 34.3478 75.5082 34.1997L80.1743 31.8712L77.8974 30.9625C77.6666 30.8704 77.4937 30.6731 77.4327 30.4327C77.3717 30.1923 77.4299 29.9371 77.5889 29.7465L82.1787 24.2504L79.8654 22.9038C79.6358 22.7701 79.4905 22.5281 79.4806 22.263C79.4708 21.9979 79.5978 21.7463 79.8168 21.596L83.6405 18.9728C83.6651 18.789 83.7085 18.5679 83.771 18.3098C83.8965 17.7919 84.1088 17.0839 84.4364 16.1524C85.0923 14.2874 86.2248 11.4862 88.0948 7.4433C89.2663 4.9105 90.2838 3.09207 91.2182 1.89928C92.132 0.732974 93.1052 -0.0117225 94.2132 0.000139652ZM157.572 121.774L161.807 135.114L161.876 135.015L163.186 117.633L157.572 121.774ZM156.867 122.294L154.17 130.246L161.176 134.837L157.132 122.099L156.867 122.294ZM163.736 117.227L162.458 134.184L169.079 124.722L163.96 117.061L163.736 117.227ZM151.82 126.018C151.812 126.036 151.803 126.054 151.794 126.073C151.771 126.115 151.737 126.168 151.692 126.225L153.274 129.659L153.722 129.953L156.139 122.832L151.82 126.018ZM164.377 116.754L169.397 124.267L169.638 123.923L170.633 112.138L164.377 116.754ZM171.187 111.73L170.229 123.078L175.554 115.468L171.544 111.467L171.187 111.73ZM171.964 111.156L175.855 115.038L176.63 113.932L178.164 106.582L171.964 111.156ZM178.789 106.122L177.384 112.854L179.495 109.837C179.576 109.722 179.679 109.626 179.797 109.553L178.854 106.074L178.789 106.122ZM110.698 93.2848L113.255 95.5457L125.522 70.5759C124.692 70.4091 123.593 70.1924 122.159 69.915L110.698 93.2848ZM139.656 94.2334L139.527 94.1022H137.48L139.656 94.2334ZM129.408 93.5855H139.144C139.105 93.4812 139.083 93.372 139.079 93.2621L129.27 91.6804L129.408 93.5855ZM108.005 90.9028L110.296 92.9291L121.633 69.8136C120.749 69.643 119.749 69.4513 118.62 69.2363L108.005 90.9028ZM139.188 92.7566C139.233 92.6687 139.291 92.5857 139.363 92.5108L139.404 92.4675L135.388 92.1435L139.188 92.7566ZM140.592 91.2222L140.892 90.9084L136.343 89.9502L140.592 91.2222ZM105.398 88.5975L107.602 90.5471L118.093 69.1359C117.14 68.9548 116.101 68.7583 114.968 68.5446L105.398 88.5975ZM102.527 86.0586L104.995 88.2408L114.442 68.4452C113.428 68.2542 112.342 68.0504 111.179 67.8327L102.527 86.0586ZM99.928 83.7604L102.124 85.7019L110.653 67.7338C110.571 67.7183 110.487 67.703 110.404 67.6874C109.552 67.528 108.71 67.356 107.878 67.1747L99.928 83.7604ZM97.3234 81.4576L99.525 83.4042L107.359 67.0607C106.364 66.8379 105.384 66.6004 104.421 66.3503L97.3234 81.4576ZM94.9873 79.391L96.9194 81.0999L103.912 66.2161C103.047 65.9865 102.196 65.7473 101.359 65.4991L94.9873 79.391ZM92.6497 77.3243L94.5818 79.0327L99.857 65.3483C99.003 65.0898 98.1638 64.8224 97.3403 64.548L92.6497 77.3243ZM90.2342 75.188L92.2432 76.9646L97.8473 64.3825C97.009 64.0982 96.1873 63.8068 95.3838 63.5097L90.2342 75.188ZM87.6291 72.8843L89.8272 74.8278L94.8978 63.3285C94.0944 63.0266 93.3092 62.7191 92.5435 62.4082L87.6291 72.8843ZM85.1287 70.6723L87.2251 72.5265L92.0637 62.212C91.2382 61.8717 90.4356 61.5278 89.6578 61.1822L85.1287 70.6723ZM82.4315 68.2878L84.7252 70.3161L89.185 60.9708C88.2572 60.5525 87.3653 60.1324 86.5121 59.7149L82.4315 68.2878ZM80.0115 66.148L82.028 67.9311L86.049 59.4849C85.2392 59.0829 84.4649 58.6847 83.7295 58.2921L80.0115 66.148ZM77.4099 63.8477L79.608 65.7913L83.2734 58.0454C82.3911 57.5671 81.5664 57.1003 80.8044 56.6503L77.4099 63.8477Z" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <!-- Desktop nav -->
+        <ul class="navbar-nav" role="list">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+          <li><a href="#agendamento" class="nav-link">Contato</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <div class="navbar-cta">
+          <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="btn btn-primary-light btn-sm" aria-label="Agendar consulta veterinária">
+            Agendar consulta
+          </a>
+        </div>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+        <ul role="list">
+          <li><a href="#inicio" class="nav-link">Início</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre a Dra. Isadora</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+          <li><a href="#agendamento" class="nav-link">Contato</a></li>
+        </ul>
+        <a href="#agendamento" class="btn btn-primary-light btn-md">Agendar consulta</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ========================
+         HERO
+    ======================== -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <!-- Decorative SVG background -->
+      <svg class="hero-bg-ornament" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+        <circle cx="200" cy="200" r="180" stroke="white" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="140" stroke="white" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="100" stroke="white" stroke-width="0.5"/>
+        <circle cx="200" cy="200" r="60" stroke="white" stroke-width="0.5"/>
+        <line x1="200" y1="20" x2="200" y2="380" stroke="white" stroke-width="0.5"/>
+        <line x1="20" y1="200" x2="380" y2="200" stroke="white" stroke-width="0.5"/>
+        <line x1="72" y1="72" x2="328" y2="328" stroke="white" stroke-width="0.5"/>
+        <line x1="328" y1="72" x2="72" y2="328" stroke="white" stroke-width="0.5"/>
+      </svg>
+
+      <div class="hero-inner">
+        <div class="hero-content">
+          <!-- Badge -->
+          <div class="hero-badge" role="text" aria-label="Medicina Veterinária Integrativa">
+            <div class="hero-badge-dot" aria-hidden="true"></div>
+            <span>Medicina Veterinária Integrativa · São Paulo</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-title" id="hero-title">
+            Cuidado que une<br>
+            <em>ciência e afeto</em><br>
+            para o seu pet
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-subtitle">
+            Unindo a precisão da medicina ocidental com a sabedoria da medicina oriental para oferecer protocolos humanizados, personalizados e baseados em ciência para cães e gatos.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-actions">
+           <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="btn btn-primary-light btn-lg">
+              Agendar consulta
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#servicos" class="btn btn-outline-light btn-lg">
+              Conhecer os serviços
+            </a>
+          </div>
+
+          <!-- Stats -->
+          <div class="hero-stats" role="list" aria-label="Destaques da Afetu">
+            <div role="listitem">
+              <div class="hero-stat-value">3+</div>
+              <div class="hero-stat-label">Especializações</div>
+            </div>
+            <div role="listitem">
+              <div class="hero-stat-value">100%</div>
+              <div class="hero-stat-label">Baseado em ciência</div>
+            </div>
+            <div role="listitem">
+              <div class="hero-stat-value">Domiciliar</div>
+              <div class="hero-stat-label">Atendimento em casa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual card -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-card">
+                    <img src="Imagens do site Afetu/acupuntura-2.png" class="hero-visual-image">
+            <div class="hero-floating-tag tag-acupuntura">
+              <div class="tag-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="tag-label">Atendimento domiciliar</div>
+                <div class="tag-value">São Paulo e região</div>
+              </div>
+            </div>
+            <div class="hero-floating-tag tag-nefro">
+              <div class="tag-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2c-1 0-2 1-2 2 0 1.5 1 3 2 4 1-1 2-2.5 2-4 0-1-1-2-2-2z"/>
+                  <path d="M12 6v12M9 9h6M8 12h8M7 15h10"/>
+                </svg>
+              </div>
+              <div>
+                <div class="tag-label">Abordagem integrativa</div>
+                <div class="tag-value">Ciência Ocidental + Oriental</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SOBRE
+    ======================== -->
+    <section id="sobre" class="section about" aria-labelledby="sobre-title">
+      <div class="section-inner">
+        <div class="about-grid">
+          <!-- Portrait -->
+          <div class="about-portrait fade-in">
+            <div class="about-portrait-frame">
+              <div class="about-portrait-placeholder" role="img" aria-label="Foto de perfil da Dra. Isadora Alvarez">
+                                    <img src="Imagens do site Afetu/isadora-about.png" class="about-portrait-frame-image" alt="Dra. Isadora Alvarez sorrindo, encostada em uma parede.">
+              </div>
+            </div>
+            <div class="about-credential-badge" aria-label="Mais de 5 anos de atuação">
+              <div class="credential-number">5+</div>
+              <div class="credential-text">anos de atuação</div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="about-content">
+            <div class="section-pretitle fade-in">Quem cuida do seu pet</div>
+            <h2 class="h1 fade-in fade-in-delay-1" id="sobre-title" style="color:var(--primary); margin-bottom: 20px;">
+              Formação sólida,<br>olhar humano
+            </h2>
+
+            <p class="about-bio fade-in fade-in-delay-2">
+              <strong>Isadora Alvarez</strong> é Médica Veterinária formada pela Universidade Paulista (UNIP), com especialização em Nefrologia e Urologia pela UFAPE. Realizou intensivo em Acupuntura pela Anclivepa-SP, onde hoje aprofunda seus estudos em Medicina Integrativa Veterinária.
+            </p>
+            <p class="about-bio fade-in fade-in-delay-2" style="margin-bottom: 0;">
+              Sua abordagem une o rigor da <strong>medicina ocidental</strong>  à sensibilidade da 
+              <strong>ciência oriental</strong>, criando protocolos que tratam o animal integralmente — 
+              corpo, comportamento e vínculo com o tutor.
+            </p>
+
+            <!-- Credentials -->
+            <div class="about-credentials fade-in fade-in-delay-3" style="margin-top: 28px;" role="list" aria-label="Formação acadêmica">
+              <div class="credential-item" role="listitem">
+                <div class="credential-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div>
+                  <div class="credential-info-title">Medicina Veterinária — UNIP</div>
+                  <div class="credential-info-sub">Universidade Paulista · Graduação</div>
+                </div>
+              </div>
+              <div class="credential-item" role="listitem">
+                <div class="credential-icon" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" 
+  height="18px" 
+  viewBox="0 -960 960 960" 
+  width="18px" 
+  fill="var(--secondary)">
+  <path d="M360-120v-167q-10 4-19.5 5.5T320-280q-100 0-170-70T80-520v-80q0-100 70-170t170-70q50 0 85 35t35 85q0 50-35 85t-85 35h-80v-80h80q17 0 28.5-11.5T360-720q0-17-11.5-28.5T320-760q-66 0-113 47t-47 113v80q0 66 47 113t113 47q17 0 28.5-11.5T360-400q0-17-11.5-28.5T320-440h-80v-80h80q50 0 85 35t35 85v280h-80Zm160 0v-280q0-50 35-85t85-35h80v80h-80q-17 0-28.5 11.5T600-400q0 17 11.5 28.5T640-360q66 0 113-47t47-113v-80q0-66-47-113t-113-47q-17 0-28.5 11.5T600-720q0 17 11.5 28.5T640-680h80v80h-80q-50 0-85-35t-35-85q0-50 35-85t85-35q100 0 170 70t70 170v80q0 100-70 170t-170 70q-11 0-20.5-1.5T600-287v167h-80ZM160-520v-80 80Zm640-80v80-80Z"/>
+</svg>                </div>
+                <div>
+                  <div class="credential-info-title">Nefrologia e Urologia Veterinária — UFAPE</div>
+                  <div class="credential-info-sub">Faculdade Ufape - São Paulo (SP) · Especialização</div>
+                </div>
+              </div>
+              <div class="credential-item" role="listitem">
+                <div class="credential-icon" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" 
+  height="18px" 
+  viewBox="0 -960 960 960" 
+  width="18px" 
+  fill="var(--secondary)">
+  <path d="M401-120v-80h75l-15-155q-20-2-40.5-3.5T380-360h-24q-12 0-24 2l27 109-77 19-28-113q-30 8-59 18t-58 22l-33-73q32-14 64-25.5t66-19.5l-44-179q-46-4-78-38t-32-82q0-50 35-85t85-35q50 0 85 35t35 85q0 31-14 56.5T268-621l45 185q17-2 33.5-3t33.5-1q18 0 36 1t36 3l-9-90q-36-11-59.5-42T360-640q0-50 35-85t85-35q50 0 85 35t35 85q0 38-21.5 68.5T523-528l11 104q32 6 64.5 14.5T663-392l33-226q-26-16-41-43t-15-59q0-50 35-85t85-35q50 0 85 35t35 85q0 46-29.5 79.5T776-601l-34 229q25 5 49.5 8.5T842-360v80q-29 0-56.5-3t-55.5-8l-9 57-79-12 9-65q-27-8-53.5-15.5T543-340l14 140h84v80H401Zm107.5-491.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5Zm-280-80Q240-703 240-720t-11.5-28.5Q217-760 200-760t-28.5 11.5Q160-737 160-720t11.5 28.5Q183-680 200-680t28.5-11.5Zm560 0Q800-703 800-720t-11.5-28.5Q777-760 760-760t-28.5 11.5Q720-737 720-720t11.5 28.5Q743-680 760-680t28.5-11.5ZM480-640Zm-280-80Zm560 0Z"/>
+</svg>                </div>
+                <div>
+                  <div class="credential-info-title">Acupuntura Veterinária — Anclivepa-SP</div>
+                  <div class="credential-info-sub">Intensivo em Acupuntura</div>
+                </div>
+              </div>
+                 <div class="credential-item" role="listitem">
+                <div class="credential-icon" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" 
+  height="18px" 
+  viewBox="0 -960 960 960" 
+  width="18px" 
+  fill="var(--secondary)">
+  <path d="M440-120v-319q-64 0-123-24.5T213-533q-45-45-69-104t-24-123v-80h80q63 0 122 24.5T426-746q31 31 51.5 68t31.5 79q5-7 11-13.5t13-13.5q45-45 104-69.5T760-720h80v80q0 64-24.5 123T746-413q-45 45-103.5 69T520-320v200h-80Zm0-400q0-48-18.5-91.5T369-689q-34-34-77.5-52.5T200-760q0 48 18 92t52 78q34 34 78 52t92 18Zm80 120q48 0 91.5-18t77.5-52q34-34 52.5-78t18.5-92q-48 0-92 18.5T590-569q-34 34-52 77.5T520-400Zm0 0Zm-80-120Z"/>
+</svg>                </div>
+                <div>
+                  <div class="credential-info-title">Medicina Integrativa — Anclivepa-SP</div>
+                  <div class="credential-info-sub">Pós-graduação em Medicina Integrativa</div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- ========================
+         SERVIÇOS
+    ======================== -->
+    <section id="servicos" class="section services" aria-labelledby="servicos-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <div class="section-pretitle fade-in">O que oferecemos</div>
+          <h2 class="h1 fade-in fade-in-delay-1" id="servicos-title" style="color: var(--primary); margin-bottom: 16px;">
+            Serviços especializados<br>para cães e gatos
+          </h2>
+          <p class="body-lg fade-in fade-in-delay-2" style="color: var(--muted); max-width: 520px; margin: 0 auto;">
+            Cada atendimento é personalizado para as necessidades únicas do seu animal. 
+            Diagnóstico integrativo, tratamento preciso.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <article class="service-card fade-in">
+            <div class="service-number">01</div>
+            <div class="service-icon" aria-hidden="true">
+               <svg width="28" height="28" viewBox="0 -960 960 960" fill="var(--primary)">
+    <path d="M401-120v-80h75l-15-155q-20-2-40.5-3.5T380-360h-24q-12 0-24 2l27 109-77 19-28-113q-30 8-59 18t-58 22l-33-73q32-14 64-25.5t66-19.5l-44-179q-46-4-78-38t-32-82q0-50 35-85t85-35q50 0 85 35t35 85q0 31-14 56.5T268-621l45 185q17-2 33.5-3t33.5-1q18 0 36 1t36 3l-9-90q-36-11-59.5-42T360-640q0-50 35-85t85-35q50 0 85 35t35 85q0 38-21.5 68.5T523-528l11 104q32 6 64.5 14.5T663-392l33-226q-26-16-41-43t-15-59q0-50 35-85t85-35q50 0 85 35t35 85q0 46-29.5 79.5T776-601l-34 229q25 5 49.5 8.5T842-360v80q-29 0-56.5-3t-55.5-8l-9 57-79-12 9-65q-27-8-53.5-15.5T543-340l14 140h84v80H401Zm107.5-491.5Q520-623 520-640t-11.5-28.5Q497-680 480-680t-28.5 11.5Q440-657 440-640t11.5 28.5Q463-600 480-600t28.5-11.5Zm-280-80Q240-703 240-720t-11.5-28.5Q217-760 200-760t-28.5 11.5Q160-737 160-720t11.5 28.5Q183-680 200-680t28.5-11.5Zm560 0Q800-703 800-720t-11.5-28.5Q777-760 760-760t-28.5 11.5Q720-737 720-720t11.5 28.5Q743-680 760-680t28.5-11.5ZM480-640Zm-280-80Zm560 0Z"/>
+  </svg>
+            </div>
+            <h3 class="service-title">Acupuntura Veterinária</h3>
+            <p class="service-desc">
+              Técnica milenar da medicina oriental aplicada com precisão científica para 
+              controle de dor, reabilitação neurológica, disfunções musculoesqueléticas 
+              e bem-estar geral do seu pet.
+            </p>
+            <div class="service-tags" aria-label="Indicações">
+              <span class="service-tag">Controle de dor</span>
+              <span class="service-tag">Reabilitação</span>
+              <span class="service-tag">Neurologia</span>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="service-link" aria-label="Agendar consulta de acupuntura veterinária">
+              Quero agendar sessão
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Card 2 — Featured -->
+          <article class="service-card featured fade-in fade-in-delay-1">
+            <div class="service-number">02</div>
+            <div class="service-icon" aria-hidden="true">
+             <svg width="28" height="28" viewBox="0 -960 960 960" fill="var(--secondary)">
+    <path d="M360-120v-167q-10 4-19.5 5.5T320-280q-100 0-170-70T80-520v-80q0-100 70-170t170-70q50 0 85 35t35 85q0 50-35 85t-85 35h-80v-80h80q17 0 28.5-11.5T360-720q0-17-11.5-28.5T320-760q-66 0-113 47t-47 113v80q0 66 47 113t113 47q17 0 28.5-11.5T360-400q0-17-11.5-28.5T320-440h-80v-80h80q50 0 85 35t35 85v280h-80Zm160 0v-280q0-50 35-85t85-35h80v80h-80q-17 0-28.5 11.5T600-400q0 17 11.5 28.5T640-360q66 0 113-47t47-113v-80q0-66-47-113t-113-47q-17 0-28.5 11.5T600-720q0 17 11.5 28.5T640-680h80v80h-80q-50 0-85-35t-35-85q0-50 35-85t85-35q100 0 170 70t70 170v80q0 100-70 170t-170 70q-11 0-20.5-1.5T600-287v167h-80ZM160-520v-80 80Zm640-80v80-80Z"/>
+  </svg>
+            </div>
+            <h3 class="service-title">Nefrologia &amp; Urologia Integrativa</h3>
+            <p class="service-desc">
+              Diagnóstico e manejo especializado de doenças renais e urinárias em cães e gatos, 
+              integrando medicina convencional e terapias complementares para prolongar 
+              qualidade de vida com bem-estar real.
+            </p>
+            <div class="service-tags" aria-label="Indicações">
+              <span class="service-tag">Doença renal crônica</span>
+              <span class="service-tag">Cistite</span>
+              <span class="service-tag">Urolitíase</span>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="service-link" aria-label="Agendar consulta de nefrologia veterinária">
+              Agendar consulta especializada
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card fade-in fade-in-delay-2">
+            <div class="service-number">03</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Atendimento Domiciliar</h3>
+            <p class="service-desc">
+              Consultas e sessões realizadas no conforto da sua casa. Sem o estresse 
+              da viagem ao pet shop. Seu animal mais tranquilo, diagnóstico mais preciso, 
+              tutor mais seguro.
+            </p>
+            <div class="service-tags" aria-label="Modalidades">
+              <span class="service-tag">Em casa</span>
+              <span class="service-tag">Menos estresse</span>
+              <span class="service-tag">São Paulo</span>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="service-link" aria-label="Agendar atendimento domiciliar">
+              Agendar visita domiciliar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         DIFERENCIAIS
+    ======================== -->
+    <section class="section diferenciais" aria-labelledby="diferenciais-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <div class="section-pretitle light fade-in">Por que a Afetu</div>
+          <h2 class="h1 fade-in fade-in-delay-1" id="diferenciais-title" style="color: var(--secondary); margin-bottom: 0;">
+            Mais do que uma consulta.<br>Uma parceria de cuidado.
+          </h2>
+        </div>
+
+        <div class="diferenciais-grid fade-in fade-in-delay-2" role="list">
+          <div class="diferencial-item" role="listitem">
+            <div class="diferencial-icon" aria-hidden="true">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9M12 12c0-5 5-9 10-9-1 5-5 9-10 9"/>
+  </svg>
+            </div>
+            <div class="diferencial-title">Visão Integrativa</div>
+            <p class="diferencial-desc">Ciência ocidental e medicina oriental trabalhando juntas para um diagnóstico completo e tratamento mais eficaz.</p>
+          </div>
+
+          <div class="diferencial-item" role="listitem">
+            <div class="diferencial-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="diferencial-title">Tutor no Centro</div>
+            <p class="diferencial-desc">Protocolos humanizados que aumentam a adesão ao tratamento e fortalecem o vínculo entre você e seu pet.</p>
+          </div>
+
+          <div class="diferencial-item" role="listitem">
+            <div class="diferencial-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+  </svg>
+            </div>
+            <div class="diferencial-title">Especialista Dedicada</div>
+            <p class="diferencial-desc">Formação específica em Nefrologia, Urologia e Acupuntura — não um clínico geral tentando fazer de tudo.</p>
+          </div>
+
+          <div class="diferencial-item" role="listitem">
+            <div class="diferencial-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+            </div>
+            <div class="diferencial-title">Flexibilidade Total</div>
+            <p class="diferencial-desc">Atendimento domiciliar ou em clínica, com horários adaptados à sua rotina para não faltar na saúde do pet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         PROCESSO
+    ======================== -->
+    <section class="section processo" aria-labelledby="processo-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <div class="section-pretitle fade-in">Como funciona</div>
+          <h2 class="h1 fade-in fade-in-delay-1" id="processo-title" style="color: var(--primary); margin-bottom: 0;">
+            Do primeiro contato<br>ao cuidado contínuo
+          </h2>
+        </div>
+
+        <div class="processo-steps fade-in fade-in-delay-2" role="list">
+          <div class="processo-step" role="listitem">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-title">Primeiro contato</div>
+            <p class="step-desc">Entre em contato pelo WhatsApp para entendermos a sua necessidade.</p>
+          </div>
+          <div class="processo-step" role="listitem">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-title">Consulta inicial</div>
+            <p class="step-desc">Anamnese completa, avaliação integrativa do animal e conversa detalhada com o tutor.</p>
+          </div>
+          <div class="processo-step" role="listitem">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-title">Plano personalizado</div>
+            <p class="step-desc">Protocolo de tratamento sob medida, com metas claras e linguagem acessível para você.</p>
+          </div>
+          <div class="processo-step" role="listitem">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-title">Acompanhamento</div>
+            <p class="step-desc">Retornos regulares para ajuste do tratamento e suporte contínuo ao tutor e ao pet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         DEPOIMENTOS
+    ======================== -->
+    <section id="depoimentos" class="section depoimentos" aria-labelledby="depoimentos-title">
+      <div class="section-inner">
+        <div class="section-header centered">
+          <div class="section-pretitle fade-in">O que dizem os tutores</div>
+          <h2 class="h1 fade-in fade-in-delay-1" id="depoimentos-title" style="color: var(--primary); margin-bottom: 0;">
+            Histórias reais de<br>cuidado e confiança
+          </h2>
+        </div>
+
+        <div class="depoimentos-grid">
+          <article class="depoimento-card fade-in">
+            <div class="depoimento-stars" aria-label="Avaliação: 5 estrelas" role="img">
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="depoimento-text">
+              "Minha gata Mimi tem doença renal crônica e eu estava desesperada sem saber o que fazer. 
+              A Dra. Isadora explicou tudo com tanta calma e clareza. Pela primeira vez entendi 
+              o que estava acontecendo e como cuidar."
+            </blockquote>
+            <div class="depoimento-author">
+              <div class="author-avatar" aria-hidden="true">CP</div>
+              <div>
+                <div class="author-name">Carla Pinheiro</div>
+                <div class="author-pet">Tutora da Mimi, 12 anos · Gata</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="depoimento-card fade-in fade-in-delay-1">
+            <div class="depoimento-stars" aria-label="Avaliação: 5 estrelas" role="img">
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="depoimento-text">
+              "O Thor começou as sessões de acupuntura depois de um problema na coluna e a melhora 
+              foi visível já na terceira sessão. O atendimento em casa fez toda a diferença — 
+              ele ficou muito mais calmo durante o tratamento."
+            </blockquote>
+            <div class="depoimento-author">
+              <div class="author-avatar" aria-hidden="true">RM</div>
+              <div>
+                <div class="author-name">Rafael Moreira</div>
+                <div class="author-pet">Tutor do Thor, 7 anos · Labrador</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="depoimento-card fade-in fade-in-delay-2">
+            <div class="depoimento-stars" aria-label="Avaliação: 5 estrelas" role="img">
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="depoimento-text">
+              "Já fui a vários veterinários com a Kika e nunca tinha recebido tanta atenção e 
+              explicação. A Dra. Isadora tem uma escuta diferente — ela entende que o pet 
+              e o tutor são inseparáveis no cuidado."
+            </blockquote>
+            <div class="depoimento-author">
+              <div class="author-avatar" aria-hidden="true">FL</div>
+              <div>
+                <div class="author-name">Fernanda Lima</div>
+                <div class="author-pet">Tutora da Kika, 5 anos · Shih Tzu</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         AGENDAMENTO
+    ======================== -->
+    <section id="agendamento" class="section agendamento" aria-labelledby="agendamento-title">
+      <div class="section-inner">
+        <div class="agendamento-inner">
+          <!-- Info -->
+          <div class="agendamento-info fade-in">
+            <div class="section-pretitle light" style="margin-bottom: 16px;">Vamos conversar</div>
+            <h2 class="agendamento-title" id="agendamento-title">
+              Cuide do seu pet<br>com quem entende
+            </h2>
+            <p class="agendamento-sub" style="margin-bottom: 16px;">
+              Entre em contato agora pelo WhatsApp.
+            </p>
+            <div class="agendamento-actions">
+           <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="btn btn-primary-light btn-md">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.163 1.6 5.927L.057 23.882a.75.75 0 0 0 .921.921l5.955-1.543A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.693 9.693 0 0 1-4.953-1.358l-.355-.211-3.676.953.977-3.566-.23-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+</svg>Falar no WhatsApp
+            </a>
+              </div>
+            <div class="contact-items" role="list" aria-label="Informações de contato">
+              <div class="contact-item" role="listitem">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-label">WhatsApp</div>
+                  <div class="contact-value">(11) 9 9416-7532</div>
+                </div>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <div class="contact-label">E-mail</div>
+                  <div class="contact-value">afetu.vet@gmail.com</div>
+                </div>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contact-label">Atendimento</div>
+                  <div class="contact-value">São Paulo e Grande SP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="agendamento-portrait fade-in">
+            <div class="agendamento-frame">
+              <div class="agendamento-portrait-placeholder" role="img" aria-label="Pets">
+                                    <img src="Imagens do site Afetu/riticaco.png" class="agendamento-frame-image" alt="Pets.">
+    </div>
+  </div>
+                                    <div class="agendamento-floating-tag tag-riticaco">
+              <div>
+                <div class="tag-label">Ritinha e Caco</div>
+                <div class="tag-value">Nossos mascotes</div>
+              </div>
+            </div>
+
+
+
+  </main>
+
+  <!-- ========================
+       FOOTER
+  ======================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <a href="#inicio" aria-label="Afetu — Voltar ao topo">
+              <svg width="865" height="170" viewBox="0 0 865 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M378.109 16.9395L406.546 113.737C412.999 135.919 413.403 138.743 424.697 144.591C437.402 151.246 435.587 166.168 420.663 166.168H361.975C347.252 166.168 342.614 151.246 352.899 144.591C361.975 138.743 365.403 135.919 358.546 113.737L356.53 107.284H322.244C319.623 121.198 319.421 132.491 325.471 144.591C329.908 153.665 331.32 166.168 316.396 166.168H287.959C274.245 166.168 275.859 155.077 285.741 144.591C299.858 129.87 303.488 113.938 308.53 91.9573L325.27 19.9644C320.228 10.2847 329.908 9.88138 337.572 9.88138H368.832C373.672 9.88138 376.697 12.3013 378.109 16.9395ZM325.673 91.1507H351.689L336.564 42.1471L325.673 91.1507Z" fill="currentColor"/>
+                <path d="M458.596 56.2633C448.915 56.2633 448.915 42.1471 458.596 42.1471H462.428C458.192 25.2076 469.285 0 496.511 0C514.46 0 523.738 8.87308 523.738 19.1578C523.738 26.8209 520.511 35.4923 509.62 35.4923C491.267 35.4923 496.713 10.8897 489.856 10.8897C488.444 10.8897 486.024 11.898 486.024 16.9395C486.024 25.0059 491.469 42.1471 502.763 42.1471H523.334C533.015 42.1471 533.015 56.2633 523.334 56.2633H502.763V115.753C502.763 129.87 503.771 139.953 513.654 146.002C523.334 151.851 522.729 166.168 509.62 166.168H455.571C442.462 166.168 441.857 151.851 451.537 146.002C461.621 139.953 462.428 136.323 462.428 115.753V56.2633H458.596Z" fill="currentColor"/>
+                <path d="M590.578 127.45C576.259 127.45 567.788 120.19 566.78 115.955C568.192 124.425 579.889 143.784 605.502 143.784C619.821 143.784 632.123 136.726 637.569 127.853C639.182 125.231 640.997 123.82 642.409 123.82C644.426 123.82 645.837 126.441 644.426 131.281C636.762 158.102 613.367 170 588.359 170C557.099 170 525.033 151.246 525.033 107.485C525.033 72.3962 548.831 46.382 586.141 46.382C614.174 46.382 634.14 61.1032 634.14 86.1091C634.14 105.872 618.611 127.45 590.578 127.45ZM566.78 91.3523C566.78 102.242 570.41 111.518 579.082 111.518C588.964 111.518 593.805 96.9988 593.805 82.6809C593.805 70.1779 589.569 60.9015 582.511 60.9015C572.629 60.9015 566.78 78.8493 566.78 91.3523Z" fill="currentColor"/>
+                <path d="M662.518 25.8126C670.182 11.0913 680.468 3.02492 690.552 3.02492C695.392 3.02492 701.24 5.84817 701.24 18.3511V36.0973H714.753C724.433 36.0973 724.433 50.2135 714.753 50.2135H701.24V120.996C701.24 131.079 703.862 135.314 706.484 135.314C709.106 135.314 711.728 131.281 711.728 124.626C711.728 120.996 713.341 118.98 715.156 118.98C717.375 118.98 719.795 122.005 719.795 128.458C719.795 160.119 701.24 165.967 689.947 165.967C673.006 165.967 660.905 156.69 660.905 127.853V50.2135H652.031C642.956 50.2135 642.552 38.5172 650.418 36.2989C655.056 35.089 658.888 32.8707 662.518 25.8126Z" fill="currentColor"/>
+                <path d="M777.509 86.7141V112.123C777.509 135.718 782.954 142.372 789.005 145.196C790.013 145.599 791.022 145.801 792.03 145.801C799.492 145.801 807.156 133.499 807.156 107.888C807.156 85.1008 806.147 84.8992 796.265 76.8327C787.593 69.7746 787.391 59.4899 800.299 56.6667L835.592 49.2052C836.802 49.0036 838.012 48.8019 839.223 48.8019C844.063 48.8019 847.491 51.8268 847.491 63.5231V122.206C847.491 136.323 848.5 139.953 858.382 146.002C868.062 151.851 867.457 166.168 854.348 166.168H812.601C801.509 166.168 801.105 158.304 803.929 153.06C797.072 163.547 783.761 167.58 772.064 167.58C754.518 167.58 737.174 154.27 737.174 124.425V93.5706C737.174 83.4875 734.552 79.2527 731.93 79.2527C729.308 79.2527 726.686 83.2859 726.686 89.9407C726.686 93.5706 725.073 95.5872 723.258 95.5872C721.04 95.5872 718.619 92.5623 718.619 86.1091C718.619 54.4484 737.174 48.6002 748.468 48.6002C765.409 48.6002 777.509 57.8766 777.509 86.7141Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M94.2132 0.000139652C95.3083 0.012123 96.1944 0.763629 96.9356 1.66012C97.6989 2.58346 98.4735 3.86683 99.3106 5.31358C100.522 7.40738 102.712 8.70982 105.065 9.47059C106.841 10.0448 108.651 10.2895 110.065 10.348L109.076 8.37268C108.93 8.08066 108.983 7.72821 109.208 7.49173C109.434 7.25545 109.784 7.18569 110.084 7.31716L115.338 9.62397L114.952 5.77827C114.916 5.41739 115.136 5.07957 115.481 4.96544C115.826 4.85156 116.204 4.9916 116.391 5.30248L118.96 9.57453L120.846 7.50485C121.107 7.21856 121.54 7.16814 121.86 7.38679C122.179 7.6056 122.289 8.02663 122.115 8.37268L121.369 9.86212C122.207 9.89644 123.204 9.96837 123.903 10.1078C124.754 10.2778 125.787 10.9061 126.942 11.894C128.123 12.9035 129.515 14.3634 131.088 16.3254C133.389 19.1945 136.864 20.0849 138.277 20.1681H154.041L154.298 20.1747C155.551 20.2447 156.372 20.8305 156.809 21.6414C157.227 22.4157 157.241 23.2935 157.142 23.8786L156.368 32.6361C156.367 32.6474 156.366 32.6592 156.365 32.6704C156.02 35.2482 155.063 41.2587 154.001 44.4376C152.602 48.6271 148.723 51.3304 144.791 53.1613C143.921 53.5665 142.669 53.8854 141.27 54.1427C139.855 54.4027 138.23 54.6101 136.578 54.7738C133.638 55.0653 130.58 55.2202 128.411 55.2814V69.6965C128.429 69.7107 128.45 69.7259 128.468 69.7434C128.508 69.7806 128.711 69.9709 128.717 70.2984C128.724 70.705 128.441 70.919 128.33 70.9836C128.219 71.0487 128.117 71.0697 128.085 71.0759C128.041 71.0846 128.004 71.0881 127.983 71.0896C127.94 71.0924 127.904 71.0912 127.885 71.0906C127.844 71.0892 127.802 71.0858 127.77 71.0825C127.702 71.0756 127.616 71.0643 127.524 71.0512C127.403 71.0339 127.291 70.9888 127.196 70.9236C126.928 70.8647 126.552 70.7861 126.046 70.6829L113.657 95.9014L118.278 99.9873L126.919 79.5413L126.947 79.4813C127.101 79.1883 127.428 79.023 127.761 79.0776C128.115 79.1361 128.383 79.4293 128.409 79.7865L129.23 91.1284L139.863 91.9861L140.192 91.6415L130.252 88.6662C130.119 88.6263 130.041 88.4888 130.075 88.3548C130.11 88.2209 130.244 88.1377 130.38 88.1661L141.311 90.4689L148.397 83.0454V70.5941C148.397 70.1781 148.647 69.8021 149.032 69.641C149.416 69.48 149.86 69.5647 150.158 69.8559L157.933 77.4656H171.964L179.267 69.4346C179.555 69.1185 180.008 69.0109 180.407 69.1647C180.806 69.3185 181.069 69.7019 181.069 70.1289V103.918C181.069 104.246 180.913 104.554 180.65 104.749L179.301 105.743L180.292 109.398C180.585 109.383 180.872 109.492 181.079 109.7C187.915 116.573 202.577 131.306 206.551 135.273C210.779 139.491 212.026 145.631 212.135 148.204C212.136 148.219 212.136 148.234 212.136 148.248V157.6H213.591C214.016 157.318 214.958 156.664 216.538 155.482C218.208 154.231 218.921 152.346 219.075 151.558V127.943L219.08 127.673C219.187 124.91 220.933 122.997 222.877 121.769C224.877 120.506 227.24 119.856 228.82 119.635C229.117 119.594 229.418 119.683 229.644 119.879C229.87 120.075 230 120.359 230 120.658V155.378L229.998 155.567C229.909 159.528 227.058 162.716 223.863 165.026C220.577 167.403 216.661 169.051 214.045 169.851C213.947 169.881 213.844 169.896 213.741 169.896H150.209C149.638 169.896 149.174 169.433 149.174 168.863V163.438C149.174 161.249 150.741 159.865 152.297 159.063C153.444 158.472 154.736 158.11 155.827 157.913L150.59 129.994C150.513 129.586 150.688 129.173 151.034 128.943C151.379 128.714 151.829 128.712 152.176 128.94L152.458 129.125L151.271 126.545C151.117 126.608 150.95 126.634 150.784 126.62C150.395 126.584 150.169 126.346 150.136 126.312C150.019 126.192 149.959 126.069 149.955 126.062C149.936 126.026 149.923 125.996 149.916 125.98C149.902 125.947 149.891 125.916 149.884 125.898C149.87 125.858 149.856 125.814 149.843 125.774C149.814 125.681 149.799 125.585 149.796 125.491C149.712 125.149 149.538 124.474 149.209 123.251C148.799 121.722 148.782 119.933 148.904 118.373C149.026 116.817 149.292 115.401 149.51 114.542L151.405 106.103L140.202 94.7839L129.447 94.134L134.881 169.169C134.896 169.383 134.822 169.595 134.675 169.753C134.528 169.91 134.322 170 134.106 170H120.385C120.06 170 119.769 169.797 119.656 169.493L117.892 164.714L108.921 154.228C108.675 153.94 108.673 153.517 108.917 153.227C109.161 152.937 109.58 152.865 109.907 153.058L112.93 154.841L107.295 145.603C107.095 145.276 107.166 144.851 107.461 144.605C107.756 144.36 108.187 144.366 108.474 144.621L110.857 146.735L106.478 134.575L94.6971 153.619C95.4559 154.415 96.8683 155.957 98.7135 158.133C101.036 160.872 104.569 166.416 106.033 168.823C106.178 169.062 106.184 169.361 106.046 169.605C105.909 169.849 105.65 170 105.369 170H29.2548C27.1652 170 25.2797 169.086 23.8059 168.01C22.7576 167.244 21.8816 166.37 21.2448 165.611L19.786 167.614C19.6122 167.852 19.3176 167.972 19.0265 167.922C18.7354 167.872 18.4973 167.661 18.4132 167.378L16.8315 162.053L15.1568 164.727C14.9732 165.02 14.6168 165.156 14.284 165.061C13.9512 164.966 13.7215 164.662 13.7213 164.317V159.762L12.0481 162.405C11.8634 162.697 11.5073 162.832 11.1753 162.736C10.8434 162.64 10.6148 162.337 10.6145 161.992V154.504C9.53257 153.068 7.22529 149.484 5.23745 144.723C3.14126 139.703 0.886004 131.351 0.0221782 127.817C-0.0552665 127.501 0.0742298 127.169 0.3463 126.988C0.618497 126.808 0.975319 126.816 1.23827 127.01L22.7825 142.889V135.384C22.7825 128.934 24.5302 122.043 25.7294 118.377L22.7016 119.088C22.3612 119.168 22.0089 119.011 21.8415 118.704C21.6743 118.397 21.7333 118.017 21.9856 117.775L32.9911 107.223L30.2358 107.973C29.8716 108.072 29.4885 107.895 29.3281 107.554C29.168 107.213 29.2774 106.806 29.587 106.59L41.2837 98.4424H35.7271C35.379 98.4423 35.0734 98.2106 34.9793 97.8763C34.8855 97.5415 35.0265 97.1852 35.3242 97.0049L48.108 89.2671L44.6155 89.6546C44.2288 89.6974 43.8696 89.4474 43.7756 89.0708C43.6818 88.6939 43.8823 88.3057 44.2443 88.1631L50.2843 85.7841H49.4485C49.0738 85.7841 48.7523 85.5166 48.6844 85.1489C48.6169 84.781 48.8224 84.4174 49.1729 84.2846L54.9924 82.0817L49.1107 79.2487C48.7573 79.0784 48.5868 78.6713 48.7133 78.3006C48.84 77.9299 49.2241 77.712 49.6083 77.7925L58.3247 79.6236L57.4858 74.8086C57.4229 74.4478 57.6218 74.0924 57.9626 73.9564C58.3035 73.8206 58.6934 73.9412 58.8971 74.246L60.9414 77.3062L74.7699 62.5223C75.0573 62.2151 75.5378 62.1921 75.853 62.4708L77.0064 63.4905L80.3574 56.3849C78.5731 55.3132 77.1559 54.3512 76.1605 53.5917C75.9114 53.4017 75.8014 53.0803 75.8813 52.7778L79.026 40.8971L77.5414 41.7619C77.2223 41.9476 76.8159 41.8831 76.57 41.6081C76.3243 41.3328 76.307 40.9227 76.5286 40.6277L79.6722 36.4445L75.7034 35.6528C75.3781 35.5879 75.1301 35.3234 75.086 34.9954C75.042 34.6674 75.2116 34.3478 75.5082 34.1997L80.1743 31.8712L77.8974 30.9625C77.6666 30.8704 77.4937 30.6731 77.4327 30.4327C77.3717 30.1923 77.4299 29.9371 77.5889 29.7465L82.1787 24.2504L79.8654 22.9038C79.6358 22.7701 79.4905 22.5281 79.4806 22.263C79.4708 21.9979 79.5978 21.7463 79.8168 21.596L83.6405 18.9728C83.6651 18.789 83.7085 18.5679 83.771 18.3098C83.8965 17.7919 84.1088 17.0839 84.4364 16.1524C85.0923 14.2874 86.2248 11.4862 88.0948 7.4433C89.2663 4.9105 90.2838 3.09207 91.2182 1.89928C92.132 0.732974 93.1052 -0.0117225 94.2132 0.000139652ZM157.572 121.774L161.807 135.114L161.876 135.015L163.186 117.633L157.572 121.774ZM156.867 122.294L154.17 130.246L161.176 134.837L157.132 122.099L156.867 122.294ZM163.736 117.227L162.458 134.184L169.079 124.722L163.96 117.061L163.736 117.227ZM151.82 126.018C151.812 126.036 151.803 126.054 151.794 126.073C151.771 126.115 151.737 126.168 151.692 126.225L153.274 129.659L153.722 129.953L156.139 122.832L151.82 126.018ZM164.377 116.754L169.397 124.267L169.638 123.923L170.633 112.138L164.377 116.754ZM171.187 111.73L170.229 123.078L175.554 115.468L171.544 111.467L171.187 111.73ZM171.964 111.156L175.855 115.038L176.63 113.932L178.164 106.582L171.964 111.156ZM178.789 106.122L177.384 112.854L179.495 109.837C179.576 109.722 179.679 109.626 179.797 109.553L178.854 106.074L178.789 106.122ZM110.698 93.2848L113.255 95.5457L125.522 70.5759C124.692 70.4091 123.593 70.1924 122.159 69.915L110.698 93.2848ZM139.656 94.2334L139.527 94.1022H137.48L139.656 94.2334ZM129.408 93.5855H139.144C139.105 93.4812 139.083 93.372 139.079 93.2621L129.27 91.6804L129.408 93.5855ZM108.005 90.9028L110.296 92.9291L121.633 69.8136C120.749 69.643 119.749 69.4513 118.62 69.2363L108.005 90.9028ZM139.188 92.7566C139.233 92.6687 139.291 92.5857 139.363 92.5108L139.404 92.4675L135.388 92.1435L139.188 92.7566ZM140.592 91.2222L140.892 90.9084L136.343 89.9502L140.592 91.2222ZM105.398 88.5975L107.602 90.5471L118.093 69.1359C117.14 68.9548 116.101 68.7583 114.968 68.5446L105.398 88.5975ZM102.527 86.0586L104.995 88.2408L114.442 68.4452C113.428 68.2542 112.342 68.0504 111.179 67.8327L102.527 86.0586ZM99.928 83.7604L102.124 85.7019L110.653 67.7338C110.571 67.7183 110.487 67.703 110.404 67.6874C109.552 67.528 108.71 67.356 107.878 67.1747L99.928 83.7604ZM97.3234 81.4576L99.525 83.4042L107.359 67.0607C106.364 66.8379 105.384 66.6004 104.421 66.3503L97.3234 81.4576ZM94.9873 79.391L96.9194 81.0999L103.912 66.2161C103.047 65.9865 102.196 65.7473 101.359 65.4991L94.9873 79.391ZM92.6497 77.3243L94.5818 79.0327L99.857 65.3483C99.003 65.0898 98.1638 64.8224 97.3403 64.548L92.6497 77.3243ZM90.2342 75.188L92.2432 76.9646L97.8473 64.3825C97.009 64.0982 96.1873 63.8068 95.3838 63.5097L90.2342 75.188ZM87.6291 72.8843L89.8272 74.8278L94.8978 63.3285C94.0944 63.0266 93.3092 62.7191 92.5435 62.4082L87.6291 72.8843ZM85.1287 70.6723L87.2251 72.5265L92.0637 62.212C91.2382 61.8717 90.4356 61.5278 89.6578 61.1822L85.1287 70.6723ZM82.4315 68.2878L84.7252 70.3161L89.185 60.9708C88.2572 60.5525 87.3653 60.1324 86.5121 59.7149L82.4315 68.2878ZM80.0115 66.148L82.028 67.9311L86.049 59.4849C85.2392 59.0829 84.4649 58.6847 83.7295 58.2921L80.0115 66.148ZM77.4099 63.8477L79.608 65.7913L83.2734 58.0454C82.3911 57.5671 81.5664 57.1003 80.8044 56.6503L77.4099 63.8477Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+          <p class="footer-tagline">
+            Medicina Veterinária Integrativa para cães e gatos. Cuidado humanizado, baseado em ciência.
+          </p>
+          <div class="footer-socials" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/afetuvet?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram da Afetu" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.5)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+          <a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta"  class="social-link" aria-label="WhatsApp da Afetu" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(233,225,213,0.5)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#inicio" class="footer-link">Início</a></li>
+            <li><a href="#sobre" class="footer-link">Sobre a Dra. Isadora</a></li>
+            <li><a href="#servicos" class="footer-link">Serviços</a></li>
+            <li><a href="#depoimentos" class="footer-link">Depoimentos</a></li>
+            <li><a href="#agendamento" class="footer-link">Agendamento</a></li>
+          </ul>
+        </div>
+
+        <!-- Serviços -->
+        <div>
+          <h4 class="footer-col-title">Serviços</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#servicos" class="footer-link">Acupuntura Veterinária</a></li>
+            <li><a href="#servicos" class="footer-link">Nefrologia Integrativa</a></li>
+            <li><a href="#servicos" class="footer-link">Urologia Veterinária</a></li>
+            <li><a href="#servicos" class="footer-link">Atendimento Domiciliar</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div>
+          <h4 class="footer-col-title">Contato</h4>
+          <ul class="footer-links" role="list">
+            <li><span class="footer-link">São Paulo, SP</span></li>
+            <li><a href="https://api.whatsapp.com/send?phone=5511994167532&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta" class="footer-link">(11) 9 9416-7532</a></li>
+            <li><a href="mailto:afetu.vet@gmail.com" class="footer-link">afetu.vet@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Afetu. Todos os direitos reservados.</p>
+        <p class="footer-crf">CRMV-SP 52915 · Medicina Veterinária com Práticas Integrativas</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo da página">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+    // ===========================
+    // NAVBAR: scroll + active
+    // ===========================
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      // Scrolled state
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+
+      // Active link
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+
+      // Scroll-top button
+      document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // ===========================
+    // HAMBURGER MENU
+    // ===========================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ===========================
+    // INTERSECTION OBSERVER
+    // ===========================
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ===========================
+    // SCROLL TO TOP
+    // ===========================
+    document.getElementById('scroll-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===========================
+    // FORM VALIDATION
+    // ===========================
+    const form = document.getElementById('contact-form');
+
+    function showError(fieldId, errorId) {
+      const field = document.getElementById(fieldId);
+      const err = document.getElementById(errorId);
+      if (field && err) {
+        field.classList.add('error');
+        err.style.display = 'block';
+        field.setAttribute('aria-describedby', errorId);
+      }
+    }
+
+    function clearError(fieldId, errorId) {
+      const field = document.getElementById(fieldId);
+      const err = document.getElementById(errorId);
+      if (field && err) {
+        field.classList.remove('error');
+        err.style.display = 'none';
+        field.removeAttribute('aria-describedby');
+      }
+    }
+
+    // Real-time clear on input
+    ['nome', 'whatsapp', 'email', 'animal', 'servico'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => clearError(id, id + '-error'));
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      // Clear all errors
+      ['nome', 'whatsapp', 'animal', 'servico', 'lgpd'].forEach(id => {
+        clearError(id, id + '-error');
+      });
+
+      // Validate
+      const nome = document.getElementById('nome').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const animal = document.getElementById('animal').value;
+      const servico = document.getElementById('servico').value;
+      const lgpd = document.getElementById('lgpd').checked;
+
+      if (!nome || nome.length < 2) { showError('nome', 'nome-error'); valid = false; }
+      if (!whatsapp || whatsapp.replace(/\D/g, '').length < 10) { showError('whatsapp', 'whatsapp-error'); valid = false; }
+      if (!animal) { showError('animal', 'animal-error'); valid = false; }
+      if (!servico) { showError('servico', 'servico-error'); valid = false; }
+      if (!lgpd) { showError('lgpd', 'lgpd-error'); valid = false; }
+
+      if (!valid) {
+        // Focus first error
+        const firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      // Simulate submission
+      const submitBtn = form.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }, 1200);
+    });
+
+    // ===========================
+    // PHONE MASK
+    // ===========================
+    document.getElementById('whatsapp').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length <= 11) {
+        v = v.replace(/^(\d{2})(\d)/, '($1) $2');
+        v = v.replace(/(\d{5})(\d)/, '$1-$2');
+      }
+      this.value = v;
+    });
+  </script>
+</body>
+</html>
