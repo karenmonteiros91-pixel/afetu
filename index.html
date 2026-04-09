@@ -1306,6 +1306,7 @@
       .processo-steps::before { display: none; }
       .agendamento-inner { grid-template-columns: 1fr; gap: 48px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .about-pillars { margin-top: 48px; }
     }
 
     @media (max-width: 768px) {
@@ -1313,23 +1314,38 @@
       .navbar-inner { padding: 0 20px; }
       .navbar-nav, .navbar-cta { display: none; }
       .hamburger { display: flex; }
-      .mobile-menu { display: block; }
+      .mobile-menu { display: block; }  
+      .hero { padding: 100px 20px 64px; }
+      .hero-title { font-size: clamp(32px, 8vw, 44px); }
+      .hero-subtitle { font-size: 15px; max-width: 100%; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
       .services-grid { grid-template-columns: 1fr; }
       .diferenciais-grid { grid-template-columns: 1fr 1fr; }
       .depoimentos-grid { grid-template-columns: 1fr; }
       .processo-steps { grid-template-columns: 1fr 1fr; }
+      .about-pillars { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .hero-stats { flex-wrap: wrap; gap: 24px; }
-      .about-pillars { grid-template-columns: 1fr; }
+      .agendamento-inner { gap: 32px; }
+      .about-credential-badge { right: 0; bottom: -16px; }
     }
 
     @media (max-width: 480px) {
+      .section { padding: 56px 16px; }
       .diferenciais-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
       .processo-steps { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .hero-actions .btn { justify-content: center; }
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .pillar-card { padding: 20px; }
+      .service-card { padding: 24px; }
+      .navbar-inner { height: 64px; } /* ← navbar menor em telas pequenas */
+      .hero { padding: 88px 16px 56px; }
     }
 
     /* =============================
