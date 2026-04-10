@@ -2083,7 +2083,7 @@
   </button>
 
   <script>
-    // ===========================
+  // ===========================
     // NAVBAR: scroll + active
     // ===========================
     const navbar = document.getElementById('navbar');
@@ -2091,10 +2091,20 @@
     const sections = document.querySelectorAll('section[id]');
 
     window.addEventListener('scroll', () => {
-      // Scrolled state
       navbar.classList.toggle('scrolled', window.scrollY > 20);
 
-      // ===========================
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+
+      document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    // ===========================
     // ANCHOR SCROLL OFFSET
     // ===========================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2108,19 +2118,6 @@
         }
       });
     });
-    
-      // Active link
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 100) current = s.id;
-      });
-      navLinks.forEach(l => {
-        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
-      });
-
-      // Scroll-top button
-      document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
 
     // ===========================
     // HAMBURGER MENU
@@ -2201,7 +2198,7 @@
     ['nome', 'whatsapp', 'email', 'animal', 'servico'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', () => clearError(id, id + '-error'));
-    });
+    }); 
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
