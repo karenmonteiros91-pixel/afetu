@@ -2150,9 +2150,14 @@
           observer.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
     fadeEls.forEach(el => observer.observe(el));
+    // Força visibilidade imediata dos elementos do agendamento
+    document.querySelectorAll('#agendamento .fade-in').forEach(el => {
+      el.classList.add('visible');
+      observer.unobserve(el);
+    });
 
     // ===========================
     // SCROLL TO TOP
