@@ -1088,7 +1088,7 @@
       color: rgba(233,225,213,0.6);
     }
     .tag-riticaco
-    { bottom: 10%; left: -20%; animation: float1 6s ease-in-out infinite; }
+    { bottom: 10%; left: -20%; animation: none; }
     
     @keyframes float1 { 100%, 100% {  transform: translateY(0px); }  50% {  transform: translateY(-10px); } }
 
@@ -1346,7 +1346,8 @@
       .agendamento-portrait {width: 100%; margin: 0 auto;}
       .agendamento-frame {width: 100%; height: 100%;}
       .agendamento-frame-image {width: 100%; height: 100%; object-fit: cover; object-position: center top;}
-      .tag-riticaco {left: 16px;  bottom: 16px;}
+      .tag-riticaco { left: 16px; bottom: 16px; animation: none; }
+      .agendamento-floating-tag { transform: none !important; }
       .about-credential-badge { right: 0; bottom: -16px; }
       
       /* Área mínima de toque */
@@ -1370,6 +1371,12 @@
       .service-card { padding: 24px; }
       .navbar-inner { height: 64px; } /* ← navbar menor em telas pequenas */
       .hero { padding: 88px 16px 56px; }
+    }
+    
+    @media (min-width: 769px) {
+      .tag-riticaco {
+        animation: float1 6s ease-in-out infinite;
+      }
     }
 
     /* =============================
